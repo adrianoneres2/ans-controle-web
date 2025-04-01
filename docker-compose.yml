@@ -1,0 +1,39 @@
+#version: '3'
+
+services:
+  app:
+    build: .
+    container_name: ans-controle-web
+    #restart: always
+    ports:
+      - "8081:80"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - rede_controle
+
+  postgres:
+    image: postgres:latest
+    container_name: ans-controle-db
+    #restart: always
+    environment:
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: postgres
+     POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - rede_controle
+
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: admin@example.com
+#      PGADMIN_DEFAULT_PASSWORD: teste21
+#    ports:
+#      - "8080:80"
+
+networks:
+  rede_controle:
+    name: rede_controle
+    external: true
