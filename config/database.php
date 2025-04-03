@@ -81,7 +81,7 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-/*
+
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DB_URL'),
@@ -93,25 +93,9 @@ return [
             'charset' => env('DB_CHARSET', 'utf8'),
             'prefix' => '',
             'prefix_indexes' => true,
-            'search_path' => 'controle',
+            'search_path' => 'dotsafe',
             'sslmode' => 'prefer',
         ],
-*/
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('octadb', 'laravel'),
-            'username' => env('usr_controle', 'root'),
-            'password' => env('neres0102', ''),
-            'charset' => env('DB_CHARSET', 'utf8'),
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'search_path' => 'controle',
-            'sslmode' => 'prefer',
-        ],
-
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',

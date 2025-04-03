@@ -4,7 +4,7 @@ FROM php:8.3-apache
 
 # Instalando extensões PHP necessárias para o PostgreSQL
 RUN apt-get update\
-    && apt-get install -y libpq-dev libzip-dev zlib1g-dev nano ssh openssh-server vim\
+    && apt-get install -y libpq-dev libzip-dev zlib1g-dev nano vim\
     && docker-php-ext-install pdo pdo_pgsql zip\
     && apt-get install curl\
     && curl -sS https://getcomposer.org/installer -o composer-setup.php\
