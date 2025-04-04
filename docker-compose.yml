@@ -4,7 +4,7 @@ services:
   app:
     build: .
     container_name: ans-controle-web
-    restart: always
+   # restart: always
     ports:
       - "8081:80"
     volumes:
@@ -16,7 +16,7 @@ services:
   postgres:
     image: postgres:latest
     container_name: ans-controle-db
-    restart: always
+    #restart: always
     environment:
      POSTGRES_USER: postgres
      POSTGRES_PASSWORD: postgres
