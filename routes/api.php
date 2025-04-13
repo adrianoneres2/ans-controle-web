@@ -11,3 +11,4 @@ Route::get('/user', function (Request $request) {
 */
 
 Route::apiResource("/user", UserController::class);
+Route::get('/addUser', [UserController::class, 'store']);
