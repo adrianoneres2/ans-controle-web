@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -10,5 +9,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 */
 
-Route::apiResource("/user", UserController::class);
-Route::get('/addUser', [UserController::class, 'store']);
+Route::get("/user/email/{email}", [UserController::class, 'findByEmail']);
+Route::apiResource("/user/all", UserController::class);
+Route::get('/user/add', [UserController::class, 'store']);
+Route::delete("/user/{id}", [UserController::class]);
+Route::get('/user/id/{id}', [UserController::class, 'findById']);

@@ -8,7 +8,7 @@ use Illuminate\Cache\Repository;
 
 class UserService
 {
-    public function criar(User $user)
+    public function create(User $user)
     {
         $userRepository = new UserRepository;
         return $userRepository->create($user->toArray());
@@ -18,5 +18,23 @@ class UserService
     {
         $userRepository = new UserRepository;
         return $userRepository->all();
+    }
+
+    public function findByEmail($email)
+    {
+       $userRepository = new UserRepository;
+       return $userRepository::findByEmail($email);
+    }
+
+    public function delete($id)
+    {
+        $userRepository = new UserRepository;
+        return $userRepository->delete($id);
+    }
+
+    public function find($id)
+    {
+        $userRepository = new UserRepository;
+        return $userRepository->find($id);
     }
 }

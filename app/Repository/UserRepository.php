@@ -11,6 +11,6 @@ class UserRepository extends AbstractRepository
 
     public static function findByEmail($email)
     {
-        return self::loadModel()::query()->where(['email' => $email]);
+      return self::loadModel()::query()->where(['email' => $email])->get();
     }
 }

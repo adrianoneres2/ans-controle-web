@@ -5,6 +5,7 @@ namespace App\Repository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Interfaces\RepositoryInterface;
+use App\Constants\MessageConstant;
 
 abstract class AbstractRepository implements RepositoryInterface
 {
@@ -20,30 +21,38 @@ abstract class AbstractRepository implements RepositoryInterface
         return self::loadModel()::all();
     }
 
-    public static function find(int $id):Model|null
+    public static function find(int $id):Model|array
     {
-        return self::loadModel()::query()->find($id);
+       $user =  self::loadModel()::query()->find($id);
+       return is_null($user)? MessageConstant::ARRAY_MESSAGE_NOT_FOUND: $user;
     }
 
     public static function create(array $attributes = []):Model|array
     {
         try {
           return  self::loadModel()::query()->create($attributes);
-        } catch (\Throwable $th) {
-           // echo $th->getMessage();
-           return [
-                'Message' => 'Problem on create new user!!'
-            ];
+        } catch (\Exception $e) {
+           return MessageConstant::ARRAY_MESSAGE_DEFAULT_ERROR;
         }
     }
 
     public static function delete($id):int
     {
-        return self::loadModel()::query()->where(['id' => $id])->delete();
+        try {
+            return self::loadModel()::query()->where(['id' => $id])->delete();
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return constant('RETURN_ERRO');
+        }
     }
 
     public static function update($id, array $attributes):int
     {
-        return self::loadModel()::query()->where(['id' => $id])->update($attributes);
+        try {
+            return self::loadModel()::query()->where(['id' => $id])->update($attributes);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return constant('RETURN_ERRO');
+        }
     }
 }
