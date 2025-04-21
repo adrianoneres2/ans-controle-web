@@ -23,8 +23,7 @@ abstract class AbstractRepository implements RepositoryInterface
 
     public static function find(int $id):Model|array
     {
-       $user =  self::loadModel()::query()->find($id);
-       return is_null($user)? MessageConstant::ARRAY_MESSAGE_NOT_FOUND: $user;
+      return self::loadModel()::query()->find($id) ?? MessageConstant::ARRAY_MESSAGE_NOT_FOUND;
     }
 
     public static function create(array $attributes = []):Model|array
