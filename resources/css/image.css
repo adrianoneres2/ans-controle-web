@@ -1,0 +1,54 @@
+.img-user-icon-person{
+    content:url("/resources/image/user/person.svg");
+    width: 50px;
+    height: 50px;
+}
+
+.img-icon-book{
+    content:url("/resources/image/book.svg");
+    width: 50px;
+    height: 50px;
+}
+
+.img-icon-access-control{
+    content:url("/resources/image/apps-outline.svg");
+    width: 50px;
+    height: 50px;
+}
+
+
+.img-icon-house{
+    content:url("/resources/image/house.svg");
+    width: 50px;
+    height: 50px;
+}
+
+.img-icon-add-circle{
+    content:url("/resources/image/add-circle-outline.svg");
+    width: 50px;
+    height: 50px;
+}
+
+.img-icon-edit{
+    content:url("/resources/image/edit-outline.svg");
+    width: 50px;
+    height: 50px;
+}
+
+.img-icon-list{
+    content:url("/resources/image/list-outline.svg");
+    width: 50px;
+    height: 50px;
+}
+
+.img-icon-reader{
+    content:url("/resources/image/reader-outline.svg");
+    width: 50px;
+    height: 50px;
+}
+
+.img-icon-key{
+    content:url("/resources/image/key-outline.svg");
+    width: 50px;
+    height: 50px;
+}

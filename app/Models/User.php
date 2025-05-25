@@ -102,6 +102,6 @@ class User extends Authenticatable
             "email"    => $this->email,
             "password" => $this->password
 
-        ];   
+        ];
     }
 }

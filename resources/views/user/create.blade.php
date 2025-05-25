@@ -1,30 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('template')
 
-    @if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>
-            {{ $error }}
-        </li>
-        @endforeach
-    </ul>
-    @endif
+@section('section_header_card')
+    @include('user.menu')
+@endsection
 
-    <form name="form-create-user" method="POST" action= {{ route('store-user') }}>
+@section('content')
+    <form name="form-create-user" method="POST" action= {{ route('user.store') }}>
         @csrf
-        <label>Nome  </label><input type="text" placeholder="Informe o nome do usuário" name="name">
-        <label>E-Mail </label><input type="text" placeholder="Informe o e-mail" name="email">
-        <label>Password </label><input type="password" name="password">
-        <input type="submit" value="Enviar" name="bt-enviar">
+        <div class="form-group">
+        <table>
+            <th>
+                <tr>
+                    <td style="width: 130px"><label>Nome </label></td>
+                    <td><input class="form-control" type="text" placeholder="Informe o nome do usuário" name="name"></td>
+                 </tr>
+                 <tr>
+                    <td style="width: 130px"><label>E-Mail</label></td>
+                    <td><input class="form-control" type="text" placeholder="Informe o e-mail" name="email"></td>
+                 </tr>
+                 <tr>
+                    <td style="width: 130px"><label>Password</label></td>
+                    <td><input class="form-control" type="password" placeholder="Digite a senha" name="password"></td>
+                 </tr>
+                 <tr>
+                   <td> <input type="submit" value="Enviar" name="bt-enviar" class="form-control btn btn-danger"  style="font-weight: 900"></td>
+                 </tr>
+            </th>
+        </table>
+        </div>
     </form>
-
-</body>
-</html>
+@endsection

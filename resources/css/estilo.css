@@ -1,0 +1,57 @@
+.inner-container {
+    height: 93vh; /* ou 100% se o elemento pai tiver altura definida */
+    display: flex; /* Para alinhar os elementos lado a lado */
+    background: rgb(240, 239, 239);
+  }
+
+  .sidebar {
+    height: 100%;
+    width: 200px; /* Largura da barra lateral */
+    /* Outros estilos da barra lateral */
+    float: left; /* Para posicioná-la à esquerda */
+    /*color: rgb(158, 151, 151);*/
+  }
+
+  .main-content {
+    /* Outros estilos do conteúdo principal */
+    /*float: right; Para posicioná-lo à direita*/
+    background: rgb(247, 247, 247);
+    /*margin-top: 10px;*/
+    margin-left: 5px;
+    width: 100%; /* Largura da barra lateral */
+  }
+
+  .menu-title{
+    color: rgb(255, 255, 255);
+  }
+
+  /* Link normal */
+a:link {
+    color: rgb(255, 255, 255); /* Cor padrão */
+    font-weight: 900;
+  }
+
+  /* Link visitado */
+  a:visited {
+    color: rgb(255, 255, 255); /* Cor para links que já foram visitados */
+    font-weight: 900;
+  }
+
+  /* Link quando o rato está por cima */
+  a:hover {
+    color: rgb(241, 226, 13); /* Cor ao passar o rato */
+    text-decoration: none; /* Remover o sublinhado */
+    font-weight: 900;
+  }
+
+  /* Link quando está a ser clicado */
+  a:active {
+    color: green; /* Cor quando o link está a ser clicado */
+    font-weight: 900;
+  }
+
+  #btn-control.red{
+    background: #ed0030;
+    color: white;
+    font-weight: 900;
+  }

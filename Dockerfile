@@ -4,12 +4,13 @@ FROM php:8.3-apache
 
 # Instalando extensões PHP necessárias para o PostgreSQL
 RUN apt-get update\
-    && apt-get install -y libpq-dev libzip-dev zlib1g-dev nano vim ssh openssh-server \
+    && apt-get install -y libpq-dev libzip-dev zlib1g-dev nano vim ssh openssh-server unzip 7zip \
     && docker-php-ext-install pdo pdo_pgsql zip\
     && apt-get install curl\
     && curl -sS https://getcomposer.org/installer -o composer-setup.php\
-    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer\
-    && composer create-project laravel/laravel dotsafe22
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+    # && composer create-project laravel/laravel dotsafe22\
+    # && composer require twbs/bootstrap-icons
 
 
 #RUN cd /var/www/html

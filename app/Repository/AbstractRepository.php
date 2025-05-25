@@ -2,10 +2,10 @@
 
 namespace App\Repository;
 
+use App\Constants\MessageConstant;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use App\Interfaces\RepositoryInterface;
-use App\Constants\MessageConstant;
 
 abstract class AbstractRepository implements RepositoryInterface
 {
@@ -21,17 +21,17 @@ abstract class AbstractRepository implements RepositoryInterface
         return self::loadModel()::all();
     }
 
-    public static function find(int $id):Model|array
+    public static function find(int $id):Model|null
     {
-      return self::loadModel()::query()->find($id) ?? MessageConstant::ARRAY_MESSAGE_NOT_FOUND;
+      return self::loadModel()::query()->find($id);
     }
 
-    public static function create(array $attributes = []):Model|array
+    public static function create(array $attributes = []):Model|null
     {
         try {
           return  self::loadModel()::query()->create($attributes);
         } catch (\Exception $e) {
-           return MessageConstant::ARRAY_MESSAGE_DEFAULT_ERROR;
+           return null;
         }
     }
 
@@ -41,7 +41,7 @@ abstract class AbstractRepository implements RepositoryInterface
             return self::loadModel()::query()->where(['id' => $id])->delete();
         } catch (\Exception $e) {
             echo $e->getMessage();
-            return constant('RETURN_ERRO');
+            return constant(MessageConstant::ERROR);
         }
     }
 
@@ -51,7 +51,7 @@ abstract class AbstractRepository implements RepositoryInterface
             return self::loadModel()::query()->where(['id' => $id])->update($attributes);
         } catch (\Exception $e) {
             echo $e->getMessage();
-            return constant('RETURN_ERRO');
+            return constant(MessageConstant::ERROR);
         }
     }
 }
